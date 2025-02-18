@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>vue</title>
+    <script src="../vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <!-- vue指令：html标签上带有v-前缀的特殊属性-->
+
+        <!-- 1.v-bind:为html标签绑定属性值，如设置href,css样式等-->
+        <a v-bind:href="url">链接一</a>
+        <!--简化写法-->
+        <a :href="url">链接二</a>
+
+        <!-- 2.v-module:在表单元素上创建双向数据绑定-->
+        <input type="text" v-model="url">
+
+        <!-- 3.v-on:为html标签绑定事件 -->
+        <button v-on:click="handle()">按钮1</button>
+        <!-- 简化写法 -->
+        <button @click="handle()">按钮2</button>
+
+        <!-- 4.v-if/else-if/else:条件性的渲染元素 -->
+        <!-- Vue 通过解析模板的节点顺序和检测指令类型，将 v-if（起）、v-else-if 和 v-else（末） 分支关联起来 -->
+        <p>你是一个：<input type="text" v-model="age">
+            <span v-if="age <= 12">baby</span>
+            <span v-else-if="age <= 12 && age < 18">毛孩子</span>
+            <span v-else="age >= 18">成年人</span>
+        </p>
+
+        <!-- 5.v-show：调整标签的display属性控制其是否渲染-->
+        <p>你是一个：<input type="text" v-model="age">
+            <span v-show="age <= 12">baby</span>
+            <span v-show="age < 12 && age <= 18">毛孩子</span>
+            <span v-show="age >= 18">成年人</span>
+        </p>
+
+        <!-- 6.v-for: 列表渲染，遍历容器的元素或者对象的属性-->
+        <!-- v-for指令用于循环渲染一组元素，其本身及其所有子元素都会随着每次迭代被重复渲染-->
+        <span v-for="item in nums">{{item}} <br></span>
+        <span v-for="(item,index) in nums">{{index+1}}->{{item}} <br></span>
+    </div>
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                url: "https://www.github.com",
+                age: 20,
+                nums: [1.1, 2.2, 3.3, 4.4, 5.5]
+            },
+            methods: {
+                handle: function () {
+                    console.log('被点击了');
+
+                }
+            }
+        })
+    </script>
+
+</body>
+
+</html>

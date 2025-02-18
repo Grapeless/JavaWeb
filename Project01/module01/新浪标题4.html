@@ -1,0 +1,71 @@
+<!DOCTYPE html> <!-- 声明文档类型为HTML -->
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>焦点访谈</title>
+    <style>
+        h1 {
+            color: red;
+        }
+
+        #id1 {
+            color: rgb(129, 129, 159);
+            font-size: 13px;
+        }
+
+        a {
+            color: black;
+            text-decoration: none;   
+        }
+
+        p {
+            text-indent: 35px;   
+            line-height: 30px;   
+            
+        }
+        #subscript{
+            text-align: right; 
+        }
+        /* 一.div,span 
+            div:独占一行，宽度默认是父元素的宽度，高度默认由内容撑开，可设置宽高
+            span:一行可显示多个，宽高由内容撑开，不可设置宽高
+        */
+        /*二.盒子模型：
+            margin>border>padding>content 可对盒子模型中的各个元素设置宽高
+
+        */
+        .content{
+            /* margin: 0,auto; 上下，左右 */
+            margin: 0 15% 0 15%;
+            /* box-sizing: border-box; */
+            width: 70%;   /* 设置宽度，高度由内容撑开 */
+              
+        }
+      
+    </style>
+</head>
+
+<body>
+    <div class="content">
+        <span><img src="../Resource/img/news_logo.png">
+            <a href="http://gov.sina.com.cn" target="_blank">新浪政务</a> >正文</span>
+        <h1>焦点访谈：中国底气 新思想务实大国粮仓</h1>
+        <hr>
+        <span class="cla" id="id1">2023年03月02日 21:50 </span> <span>央视网</span>
+        <hr>
+        
+        <video src="../Resource/video/1.mp4" controls width="80%" class="content"></video>
+        
+        <audio src="../Resource/audio/1.mp3" controls></audio>
+        
+        <p><b>央视网消息（焦点访谈）：</b>党的十八大以来，以习近平同志为核心的党中央始终把解决粮食安全问题作为治国理政的头等大事，重农抓粮一系列政策举措有力有效，我国粮食产量站稳1.3万亿斤台阶，实现谷物基本自给、口粮绝对安全。我们把饭碗牢牢端在自己手中，为保障经济社会发展提供了坚实支撑，为应对各种风险挑战赢得了主动。连续八年1.3万亿斤，这个沉甸甸的数据是如何取得的呢？
+        </p>
+        <p>人勤春来早，春耕农事忙。立春之后，由南到北，我国春耕春管工作陆续展开，春天的田野处处生机盎然</p>
+        <p id="subscript">责任编辑: Lim</p>
+    </div>
+
+</body>
+
+</html>

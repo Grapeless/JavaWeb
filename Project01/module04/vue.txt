@@ -1,0 +1,2 @@
+MVVM - (Model-View-ViewModel)
+vue的生命周期- 之mounted（挂载完成）:vue初始化成功，html页面渲染成功。（之后发送请求到服务端，加载数据）

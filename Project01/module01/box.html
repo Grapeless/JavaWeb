@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>盒子模型</title>
+    <style>
+        /* margin>border>padding>content */
+        #content {
+            height: 200px;
+            width: 200px;
+            box-sizing: border-box;  /* 设置为border-box，设置的宽高成为整个盒子（不包括margin）的而不是content的 */
+            background-color: aqua;
+
+            padding: 20px 20px 20px 20px; /* 内边距，：，右，下，左 四个相同值可省略至一个*/
+            border: 10px solid black;  /* 边框：宽度，线条类型，颜色*/
+            margin: 30px; /* 外边距：上，右，下，左 */
+
+        }
+    </style>
+</head>
+
+<body>
+    <div id="content">
+        Let it be known,the divinity is mine.
+    </div>
+</body>
+
+</html>

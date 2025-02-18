@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Axios</title>
+    <!-- 1.引入Axios -->
+    <script src="../axios-0.18.0.js"></script>
+</head>
+
+<body>
+    <input type="button" value="数据Get" onclick="get()">
+    <input type="button" value="数据Post" onclick="post()">
+
+
+
+<script>
+    function get() {
+        //通过Axios发送异步请求-get
+        /* axios({
+            method: "get",
+            url: "http://localhost:10010/emp/list"
+
+        }).then(result => {
+            console.log(result.data);
+
+        }) */
+        //请求简化写法
+        axios.get("http://localhost:10010/emp/list").then(result => console.log(result.data));
+    };
+    function post() {
+        //通过Axios发送异步请求-post
+        /* axios({
+            method: "post",
+            url: 'http://localhost:10010/emp/deleteById',
+            data: 'id=1'
+        }).then(result => {
+            console.log(result.data);
+        }) */
+        //请求简化写法
+        axios.post("http://localhost:10010/emp/deleteById", data = "id=1").then(result => console.log(result.data));
+    };
+</script>
+</body>
+
+</html>

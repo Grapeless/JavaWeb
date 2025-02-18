@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Demo02</title>
+</head>
+<body>
+    <img src="../../Resource/img/off.gif" alt="" id="bulb">
+    <div>
+        <button onclick="openLight()">点亮</button>
+        <button onclick="extinct()">熄灭</button>
+    </div>
+
+    <div>
+        <label><input type="text" id="text" onblur="upperCase()" onfocus="lowerCase()"></label>
+    </div>
+
+    <div>
+        <label><input type="checkbox" name="sport">电影</label>
+        <label><input type="checkbox" name="sport">旅游</label>
+        <label><input type="checkbox" name="sport">游戏</label>
+    </div>
+
+    <div>
+        <button onclick="selectAll()">全选</button>
+        <button onclick="resetAll()">重置</button>
+    </div>
+
+<script>
+    function openLight(){
+        document.getElementById('bulb').src = "../../Resource/img/on.gif"
+    }
+    function extinct(){
+        document.getElementById('bulb').src = "../../Resource/img/off.gif"
+    }
+    function selectAll(){
+        let checkboxs = document.getElementsByName('sport');
+        for (let i = 0; i < checkboxs.length; i++) {
+            checkboxs[i].checked = true;
+        }
+    }
+    function resetAll() {
+        let checkboxs = document.getElementsByName('sport');
+        for (let i = 0; i < checkboxs.length; i++) {
+            checkboxs[i].checked = false;
+        }
+    }
+    function upperCase(){
+        let inputBox = document.getElementById('text');
+        inputBox.value = inputBox.value.toUpperCase();
+
+    }
+    function lowerCase(){
+        let inputBox = document.getElementById('text');
+        inputBox.value = inputBox.value.toLowerCase();
+    }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo01</title>
+    <script src="../vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <table cellspacing="0" border="1px" width="60%" align="center">
+            <tr>
+                <th>编号</th>
+                <th>姓名</th>
+                <th>年龄</th>
+                <th>性别</th>
+                <th>成绩</th>
+                <th>等级</th>
+            </tr>
+
+            <tr v-for="(user,index) in users"> 
+                <th>{{index+1}}</th>
+                <th>{{user.name}}</th>
+                <th>{{user.age}}</th>
+
+                <th v-if="user.gender === 1">男</th>
+                <th v-else-if="user.gender === 2">女</th>
+
+                <th>{{user.score}}</th>
+
+                <!-- <th v-if="user.score >=85">优秀</th>
+                <th v-else-if="user.score < 85 && user.score >=60">及格</th>
+                <th v-else="user.score < 60"> <span style="color: red;">不及格</span> </th> -->
+                <!-- 条件判断简化 -->
+                <th v-if="user.score >=85">优秀</th>
+                <th v-else-if="user.score >=60">及格</th>
+                <th v-else> <span style="color: red;">不及格</span> </th>
+            </tr>
+
+        </table>
+    </div>
+
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                users: [{
+                    name: "Tom",
+                    age: 20,
+                    gender: 1,
+                    score: 78
+                }, {
+                    name: "Rose",
+                    age: 18,
+                    gender: 2,
+                    score: 86
+                }, {
+                    name: "Jerry",
+                    age: 26,
+                    gender: 1,
+                    score: 90
+                }, {
+                    name: "Tony",
+                    age: 30,
+                    gender: 1,
+                    score: 52
+                }]
+            },
+
+        })
+    </script>
+</body>
+
+</html>

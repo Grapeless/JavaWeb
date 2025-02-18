@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Binding</title>
+</head>
+
+<body onload="load()">
+  <button onclick="fun1()">事件绑定方式一</button>
+  <button id="fun2">事件绑定方式二</button>
+
+  <label><input type="text" onblur="fun_onblur()" onfocus="fun_onfocus()" onkeydown="fun_onkeydown()"
+            onmouseover="fun_onMouseover()" onmouseout="fun_onMouseout()"></label>
+
+  <form action="" method="get" onsubmit="fun_onsubmit()">
+      <input type="submit" value="提交" >
+  </form>
+
+
+  <script src="../binding.js"></script>
+</body>
+
+</html>

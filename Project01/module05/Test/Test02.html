@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo</title>
+    <script src="../axios-0.18.0.js"></script>
+    <script src="../../module04/vue.js"></script>
+</head>
+<body>
+    
+
+    <script>
+        new Vue({
+            el:"#app",
+            data:{
+
+            },
+            mounted () {
+                axios.get("http://localhost:10010/emp/list").then(result => {return result});
+            }
+        })
+    </script>
+</body>
+</html>

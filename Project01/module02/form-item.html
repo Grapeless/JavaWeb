@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="" method="post">
+        <!-- name:表单项的键  value：表单项的值 -->
+        
+        <!-- 1.基本 -->
+        用户名：<input type="text" name="name"><br><br>
+
+        <!-- 2.隐藏文本 -->
+        密码： <input type="password" name="password"><br><br>
+
+        <!-- 3.单选按钮 --> <!-- https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/label -->
+        <label><input type="radio" name="food" value="1">米饭</label> <!-- 提交的值为value中设定的值 -->
+        <label><input type="radio" name="food" value="2">面条</label> <br><br>
+
+        <!-- 4.复选框 -->
+        <label> <input type="checkbox" name="favFruit" value="grape">grape</label>
+        <label> <input type="checkbox" name="favFruit" value="peach">peach</label>
+        <label> <input type="checkbox" name="favFruit" value="orange"> orange</label><br><br>
+
+        <!-- 5.文件上传 -->
+        图片：<input type="file" name="img"> <br><br>
+
+        <!-- 6.时间 -->
+        生日：<input type="time" name="birthday"><br><br>
+        时间：<input type="date" name="date"><br><br>
+        日期时间：<input type="datetime-local" name="local_datetime"><br><br>
+
+        <!-- 7.邮箱 -->
+        邮箱：<input type="email" name="email"><br><br>
+
+        <!-- 8.数字 -->
+        年龄：<input type="number" name="age"><br><br>
+
+        <!-- 9.下拉框 -->
+        四点一线：<select name="place">
+            <option value="">--------请选择--------</option>
+            <option value="1">寝室</option>
+            <option value="2">教室</option>
+            <option value="3">实验室</option>
+            <option value="4">食堂</option>
+        </select><br><br>
+
+        <!-- 10.文本域 --> <!-- cols一行多少字符，rows共多少行 -->
+        描述：<textarea name="desc" cols="30" rows="10"></textarea><br><br>
+
+        <!-- 11.隐藏域 -->
+        <input type="hidden" name="hidden_01" value="1"><br><br>
+
+        <!-- 12.按钮 -->
+        <input type="button" value="按钮">
+        <input type="reset" value="重置">
+        <input type="submit" value="提交">
+    </form>
+
+
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue</title>
+    <!-- 1.引入vue.js -->
+   <script src="../vue.js"></script>
+</head>
+<body>
+    <!-- 3.编写视图层 -->
+    <div id = "app">
+        <label>
+            <input type="text" v-model="message">
+        </label>
+        {{message}} <!--插值表达式；{{}}-->
+    </div>
+<script>
+    /*2.设置vue对象 */
+    new Vue({
+        el: "#app", //vue接管的区域
+        data:{
+            message : "Hello Vue"
+        },
+        mounted () {
+            alert("vue挂载完成,发送请求获取数据")
+        }
+    })
+</script>
+</body>
+</html>

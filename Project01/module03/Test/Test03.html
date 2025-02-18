@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Demo01</title>
+</head>
+<body>
+<img src="../../Resource/img/off.gif" alt="">
+<div>The first div block</div>
+<div>The second div block</div>
+<form>
+    <label><input type="checkbox" name="sport">游泳</label>
+    <label><input type="checkbox" name="sport">瑜伽</label>
+    <label><input type="checkbox" name="sport">游戏</label>
+</form>
+
+
+<script>
+    let imgObj = window.document.getElementsByTagName('img');
+    //设置图片url属性
+    for (let i = 0; i < imgObj.length; i++) {
+        if (imgObj[i].src.endsWith("/Resource/img/off.gif")) {
+            imgObj[i].src = "../Resource/img/on.gif";
+        }
+    }
+    let checkboxObjs = document.getElementsByName('sport');
+    //设置复选框的选中状态，使其全部选中
+    for (let i = 0; i < checkboxObjs.length; i++) {
+        checkboxObjs[i].checked = true;
+    }
+    let divObjs = document.getElementsByTagName('div');
+    //设置文本内容
+    for (let i = 0; i < divObjs.length; i++) {
+        divObjs[i].innerHTML += '<font color="red"> very good!</font>';
+    }
+
+</script>
+</body>
+</html>

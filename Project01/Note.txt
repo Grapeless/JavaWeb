@@ -1,0 +1,3 @@
+标签：img,h1~h6,hr，color,span,a,video,audio,p,b,strong,div,span,form,input,select,textarea
+
+属性：font-size,text-decoration,text-indent,line-height,text-align
