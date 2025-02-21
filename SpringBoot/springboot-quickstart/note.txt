@@ -1,0 +1,9 @@
+DAO--Data Access Object--数据访问对象
+
+POJO--Plain Old Java Object--(类似与JavaBean)
+
+IOC--Inversion Of Control--控制反转
+
+DI--Dependency Inject--依赖注入
+
+JDBC--Java DataBase Connectivity
