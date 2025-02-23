@@ -20,17 +20,17 @@ public class EmpController {
     private EmpService empService;
 
     @GetMapping
-    public Result search(SearchConditionBean scb){
+    public Result search(SearchConditionBean scb) {
         log.info("分页查询，起始页:{}，每页大小:{}，name:{},gender:{},begin:{},end:{}"
-                ,scb.getPage(),scb.getPageSize(),scb.getName(),scb.getGender(),scb.getBegin(),scb.getEnd());
+                , scb.getPage(), scb.getPageSize(), scb.getName(), scb.getGender(), scb.getBegin(), scb.getEnd());
         PageBean page = empService.page(scb);
         return Result.success(page);
     }
 
     @DeleteMapping("/{ids}")
-    public Result delete(@PathVariable List<Integer> ids){
+    public Result delete(@PathVariable List<Integer> ids) {
 
-        log.info("批量删除，删除id:{}",ids);
+        log.info("批量删除，删除id:{}", ids);
 
         empService.delete(ids);
 
@@ -38,10 +38,30 @@ public class EmpController {
     }
 
     @PostMapping
-    public Result insert(@RequestBody Emp emp){
-        log.info("插入员工 {}",emp);
+    public Result insert(@RequestBody Emp emp) {
+        log.info("插入员工 {}", emp);
 
         empService.insert(emp);
+        return Result.success();
+    }
+
+    @GetMapping("/{id}")
+    public Result getEmpById(@PathVariable Integer id) {
+
+        log.info("所查询id:{}", id);
+
+        Emp emp = empService.getEmpById(id);
+
+        return Result.success(emp);
+    }
+
+    @PutMapping
+    public Result update(@RequestBody Emp emp){
+
+        log.info("新数据：{}",emp);
+
+        empService.update(emp);
+
         return Result.success();
     }
 }

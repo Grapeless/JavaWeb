@@ -12,4 +12,10 @@ public interface EmpService {
     void delete(List<Integer> ids);
 
     void insert(Emp emp);
+
+    Emp getEmpById(Integer id);
+
+    void update(Emp emp);
+
+    Emp login(Emp emp);
 }
