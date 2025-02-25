@@ -1,5 +1,6 @@
 package com.lim.controller;
 
+import com.lim.anno.Log;
 import com.lim.pojo.Dept;
 import com.lim.pojo.Result;
 import com.lim.service.DeptService;
@@ -34,6 +35,7 @@ public class DeptController {
         return Result.success(deptList);
     }
 
+    @Log
     @DeleteMapping("/{id}")
     public Result delete(@PathVariable Integer id){
         log.info("根据id删除数据:{}", id);
@@ -43,6 +45,7 @@ public class DeptController {
         return Result.success();
     }
 
+    @Log
     @PostMapping
     public Result insert(@RequestBody Dept dept){
         log.info("添加部门信息:{}",dept);
@@ -52,6 +55,7 @@ public class DeptController {
         return Result.success();
     }
 
+    @Log
     @PutMapping
     public Result update(@RequestBody Dept dept){
         log.info("修改部门信息:{}",dept);
