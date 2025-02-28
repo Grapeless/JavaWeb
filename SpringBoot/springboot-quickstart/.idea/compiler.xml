@@ -16,6 +16,7 @@
         <processorPath useClasspath="false">
           <entry name="$PROJECT_DIR$/../../../../../Source/apache-maven-3.9.9/repo/org/projectlombok/lombok/1.18.36/lombok-1.18.36.jar" />
         </processorPath>
+        <module name="springboot-web-management (1)" />
         <module name="springboot-web-management" />
       </profile>
     </annotationProcessing>
@@ -33,6 +34,7 @@
       <module name="springboot-mybatis-quickstart" options="-parameters" />
       <module name="springboot-quickstart" options="-parameters" />
       <module name="springboot-web-management" options="-parameters" />
+      <module name="springboot-web-management (1)" options="-parameters" />
     </option>
   </component>
 </project>

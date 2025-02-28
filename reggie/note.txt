@@ -1,0 +1,32 @@
+Servlet--GenericServlet--HttpServlet--DispatcherServlet
+
+ServletRequest--HttpServletRequest--RequestFacade
+
+ServletResponse--HttpServletResponse--ResponseFacade
+
+Facade--正面，立面；假象，伪装
+
+//JavaWeb三大组件--Servlet,Filter,Listener
+
+1.1 Servlet继承体系及其方法
+
+1.2 res,req继承体系及其方法，请求转发与重定向
+
+1.3 MVC，三层架构
+
+1.4 Cookie的发送:
+        Cookie cookie = new Cookie("key","value");
+        resp.addCookie(new Cookie("key","value"));
+        获取:
+        req.getCookies()[0].getName()/getValue()
+        原理:设置请求/响应头
+
+1.5 Session的获取：
+        HttpSession session = req.getSession();
+        session.setAttribute()/getAttribute()
+        原理:基于Cookie的
+        钝化与活化，销毁(invalidate()):
+
+2.Filter
+
+3.Listener
