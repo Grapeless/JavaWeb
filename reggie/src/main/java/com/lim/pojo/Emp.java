@@ -1,16 +1,22 @@
 package com.lim.pojo;
 
-import com.baomidou.mybatisplus.annotation.FieldFill;
-import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
 @Data
-public class Employee implements Serializable {
+@AllArgsConstructor
+@NoArgsConstructor
+@TableName("employee")
+public class Emp implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+    @TableId(value = "id", type = IdType.ASSIGN_ID)
     private Long id;
 
     private String username;

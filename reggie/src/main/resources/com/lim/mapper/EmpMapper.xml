@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lim.mapper.EmpMapper">
+    <update id="updateById">
+        update employee
+        <set>
+            status      = #{status},
+            update_time = #{updateTime},
+            update_user = #{updateUser},
+            username    = #{username},
+            name        = #{name},
+            phone       = #{phone},
+            sex         = #{sex},
+            id_number   = #{idNumber}
+        </set>
+        where id = #{id}
+    </update>
+    <select id="pagingQuery" resultType="com.lim.pojo.Emp">
+        select * from employee
+        <where>
+            <if test="name != null">
+                name like concat('%',#{name},'%')
+            </if>
+        </where>
+    </select>
+</mapper>

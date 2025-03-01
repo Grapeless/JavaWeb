@@ -880,7 +880,7 @@
       var args = [], len = arguments.length;
       while ( len-- ) args[ len ] = arguments[ len ];
 
-      var result = original.apply(this, args);
+      var r = original.apply(this, args);
       var ob = this.__ob__;
       var inserted;
       switch (method) {
@@ -895,7 +895,7 @@
       if (inserted) { ob.observeArray(inserted); }
       // notify change
       ob.dep.notify();
-      return result
+      return r
     });
   });
 
@@ -1224,7 +1224,7 @@
       }
       // when parentVal & childVal are both present,
       // we need to return a function that returns the
-      // merged result of both functions... no need to
+      // merged r of both functions... no need to
       // check if parentVal is a function here because
       // it has to be a function to pass previous merges.
       return function mergedDataFn () {
@@ -1537,7 +1537,7 @@
 
     // Apply extends and mixins on the child options,
     // but only if it is a raw options object that isn't
-    // the result of another mergeOptions call.
+    // the r of another mergeOptions call.
     // Only merged options has the _base property.
     if (!child._base) {
       if (child.extends) {
@@ -2433,13 +2433,13 @@
   }
 
   function initInjections (vm) {
-    var result = resolveInject(vm.$options.inject, vm);
-    if (result) {
+    var r = resolveInject(vm.$options.inject, vm);
+    if (r) {
       toggleObserving(false);
-      Object.keys(result).forEach(function (key) {
+      Object.keys(r).forEach(function (key) {
         /* istanbul ignore else */
         {
-          defineReactive$$1(vm, key, result[key], function () {
+          defineReactive$$1(vm, key, r[key], function () {
             warn(
               "Avoid mutating an injected value directly since the changes will be " +
               "overwritten whenever the provided component re-renders. " +
@@ -2456,7 +2456,7 @@
   function resolveInject (inject, vm) {
     if (inject) {
       // inject is :any because flow is not smart enough to figure out cached
-      var result = Object.create(null);
+      var r = Object.create(null);
       var keys = hasSymbol
         ? Reflect.ownKeys(inject)
         : Object.keys(inject);
@@ -2469,7 +2469,7 @@
         var source = vm;
         while (source) {
           if (source._provided && hasOwn(source._provided, provideKey)) {
-            result[key] = source._provided[provideKey];
+            r[key] = source._provided[provideKey];
             break
           }
           source = source.$parent;
@@ -2477,7 +2477,7 @@
         if (!source) {
           if ('default' in inject[key]) {
             var provideDefault = inject[key].default;
-            result[key] = typeof provideDefault === 'function'
+            r[key] = typeof provideDefault === 'function'
               ? provideDefault.call(vm)
               : provideDefault;
           } else {
@@ -2485,7 +2485,7 @@
           }
         }
       }
-      return result
+      return r
     }
   }
 
@@ -2645,10 +2645,10 @@
       if (hasSymbol && val[Symbol.iterator]) {
         ret = [];
         var iterator = val[Symbol.iterator]();
-        var result = iterator.next();
-        while (!result.done) {
-          ret.push(render(result.value, ret.length));
-          result = iterator.next();
+        var r = iterator.next();
+        while (!r.done) {
+          ret.push(render(r.value, ret.length));
+          r = iterator.next();
         }
       } else {
         keys = Object.keys(val);
@@ -3551,7 +3551,7 @@
         vnode = render.call(vm._renderProxy, vm.$createElement);
       } catch (e) {
         handleError(e, vm, "render");
-        // return error render result,
+        // return error render r,
         // or previous vnode to prevent render error causing blank component
         /* istanbul ignore else */
         if (vm.$options.renderError) {
@@ -9072,7 +9072,7 @@
 
   /*  */
 
-  var defaultTagRE = /\{\{((?:.|\result?\n)+?)\}\}/g;
+  var defaultTagRE = /\{\{((?:.|\r?\n)+?)\}\}/g;
   var regexEscapeRE = /[-.*+?^${}()|[\]\/\\]/g;
 
   var buildRegex = cached(function (delimiters) {
@@ -9551,7 +9551,7 @@
 
   var slotRE = /^v-slot(:|$)|^#/;
 
-  var lineBreakRE = /[\result\n]/;
+  var lineBreakRE = /[\r\n]/;
   var whitespaceRE$1 = /\s+/g;
 
   var invalidAttributeRE = /[\s"'<>\/=]/;
@@ -11598,7 +11598,7 @@
     if ( start === void 0 ) start = 0;
     if ( end === void 0 ) end = source.length;
 
-    var lines = source.split(/\result?\n/);
+    var lines = source.split(/\r?\n/);
     var count = 0;
     var res = [];
     for (var i = 0; i < lines.length; i++) {
@@ -11628,16 +11628,16 @@
   }
 
   function repeat$1 (str, n) {
-    var result = '';
+    var r = '';
     if (n > 0) {
       while (true) { // eslint-disable-line
-        if (n & 1) { result += str; }
+        if (n & 1) { r += str; }
         n >>>= 1;
         if (n <= 0) { break }
         str += str;
       }
     }
-    return result
+    return r
   }
 
   /*  */

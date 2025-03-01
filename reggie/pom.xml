@@ -49,8 +49,8 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
-
         </dependency>
+
         <!--mp-->
         <dependency>
             <groupId>com.baomidou</groupId>
@@ -64,6 +64,14 @@
             <artifactId>fastjson</artifactId>
             <version>2.0.53</version>
         </dependency>
+
+        <!--pageHelper-->
+        <dependency>
+            <groupId>com.github.pagehelper</groupId>
+            <artifactId>pagehelper-spring-boot-starter</artifactId>
+            <version>1.4.7</version>
+        </dependency>
+
     </dependencies>
 
     <build>

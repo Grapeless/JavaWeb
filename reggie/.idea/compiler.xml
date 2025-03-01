@@ -13,11 +13,14 @@
         <module name="reggie" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel target="17" />
+    <bytecodeTargetLevel target="17">
+      <module name="springboot-web-management" target="17" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="reggie" options="-parameters" />
+      <module name="springboot-web-management" options="-parameters" />
     </option>
   </component>
 </project>
