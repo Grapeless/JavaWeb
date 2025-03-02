@@ -42,7 +42,7 @@ public class EmpServiceImpl implements EmpService {
 
     //分页查询
     @Override
-    public PagingQueryResult pagingQuery(Integer page, Integer pageSize, String name) {
+    public PagingQueryResult<Emp> pagingQuery(Integer page, Integer pageSize, String name) {
         log.info("page:{},pageSize:{}", page, pageSize);
         //设置分页查询参数
         PageHelper.startPage(page, pageSize);
@@ -50,7 +50,7 @@ public class EmpServiceImpl implements EmpService {
         //获得分页查询数据
         Page<Emp> queryResult = (Page<Emp>) empMapper.pagingQuery(name);
 
-        return new PagingQueryResult(queryResult.getTotal(), queryResult.getResult());
+        return new PagingQueryResult<>(queryResult.getTotal(), queryResult.getResult());
     }
 
     //修改员工状态

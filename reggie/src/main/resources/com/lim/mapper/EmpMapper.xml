@@ -6,22 +6,23 @@
     <update id="updateById">
         update employee
         <set>
-            status      = #{status},
-            update_time = #{updateTime},
-            update_user = #{updateUser},
-            username    = #{username},
-            name        = #{name},
-            phone       = #{phone},
-            sex         = #{sex},
-            id_number   = #{idNumber}
+            <if test="status != null">status = #{status},</if>
+            <if test="updateTime != null">update_time = #{updateTime},</if>
+            <if test="updateUser != null">update_user = #{updateUser},</if>
+            <if test="username != null">username = #{username},</if>
+            <if test="name != null">name = #{name},</if>
+            <if test="phone != null">phone = #{phone},</if>
+            <if test="sex != null">sex = #{sex},</if>
+            <if test="idNumber != null">id_number = #{idNumber}</if>
         </set>
         where id = #{id}
     </update>
     <select id="pagingQuery" resultType="com.lim.pojo.Emp">
-        select * from employee
+        select *
+        from employee
         <where>
             <if test="name != null">
-                name like concat('%',#{name},'%')
+                name like concat('%', #{name}, '%')
             </if>
         </where>
     </select>

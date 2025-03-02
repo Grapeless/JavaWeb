@@ -61,7 +61,7 @@ public class EmpController {
     public Result pagingQuery(@RequestParam(defaultValue = "1") Integer page,
                               @RequestParam(defaultValue = "10") Integer pageSize,
                               String name) {
-        PagingQueryResult pagingQueryResult = empService.pagingQuery(page, pageSize, name);
+        PagingQueryResult<Emp> pagingQueryResult = empService.pagingQuery(page, pageSize, name);
         return Result.success(pagingQueryResult);
     }
 

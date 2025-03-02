@@ -1,9 +1,9 @@
 package com.lim.mapper;
 
-import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.lim.pojo.Emp;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
@@ -18,7 +18,7 @@ public interface EmpMapper {
             "(#{name},#{username},#{password},#{phone},#{sex},#{idNumber},#{createTime},#{updateTime},#{createUser},#{updateUser})")
     void insert(Emp emp);
 
-    List<Emp> pagingQuery(String name);
+    List<Emp> pagingQuery(@Param("name") String name);
 
     void updateById(Emp emp);
 

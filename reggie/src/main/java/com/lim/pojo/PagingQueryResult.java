@@ -9,7 +9,7 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class PagingQueryResult {
+public class PagingQueryResult<T> {
     private Long total;
-    private List<Emp> records;
+    private List<T> records;
 }
