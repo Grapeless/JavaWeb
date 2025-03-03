@@ -1,4 +1,4 @@
-package com.lim.pojo;
+package com.lim;
 
 import lombok.Data;
 import java.util.HashMap;

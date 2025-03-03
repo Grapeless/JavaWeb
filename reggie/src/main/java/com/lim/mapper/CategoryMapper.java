@@ -20,4 +20,7 @@ public interface CategoryMapper {
     @Update("update category set name = #{name},sort = #{sort},update_time = #{updateTime}," +
             "update_user = #{updateUser} where id = #{id}")
     void updateCategoryById(Category category);
+
+    @Select("select * from category where type = #{type} order by sort,update_time desc")
+    List<Category> selectByType(Integer type);
 }

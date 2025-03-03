@@ -9,6 +9,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @Slf4j
 @RestController
 @RequestMapping("/category")
@@ -34,6 +36,7 @@ public class CategoryController {
                               @RequestParam(defaultValue = "10") Integer pageSize) {
         PagingQueryResult<Category> pagingQueryResult = categoryService.pagingQuery(page, pageSize);
         return Result.success(pagingQueryResult);
+
     }
 
     //删除分类
@@ -51,5 +54,12 @@ public class CategoryController {
         Long userId = (Long) req.getSession().getAttribute("id");
         categoryService.updateCategoryById(category,userId);
         return Result.success();
+    }
+
+    //查询所有菜品分类信息（type = 1）
+    @GetMapping("/list")
+    public Result selectByType(Category category){
+        List<Category> categories = categoryService.selectByType(category.getType());
+        return Result.success(categories);
     }
 }
