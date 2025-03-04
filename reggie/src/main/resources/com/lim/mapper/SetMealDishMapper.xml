@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lim.mapper.SetMealDishMapper">
+    <insert id="addSetMealDish">
+        insert into setmeal_dish(setmeal_id, dish_id, name, price, copies,
+                                 create_time, update_time, create_user, update_user)
+        values (#{setmealId}, #{dishId}, #{name}, #{price}, #{copies},
+                #{createTime}, #{updateTime}, #{createUser}, #{updateUser})
+    </insert>
+</mapper>

@@ -11,7 +11,7 @@ public interface CategoryMapper {
             " values (#{name},#{type},#{sort},#{updateUser},#{updateTime},#{createTime},#{createUser})")
     void addCategory(Category category);
 
-    @Select("select * from category")
+    @Select("select * from category order by sort")
     List<Category> pagingQuery();
 
     @Delete("delete from category where id = #{id}")
@@ -23,4 +23,7 @@ public interface CategoryMapper {
 
     @Select("select * from category where type = #{type} order by sort,update_time desc")
     List<Category> selectByType(Integer type);
+
+    @Select("select name from category where id = #{id}")
+    String selectNameById(Long id);
 }

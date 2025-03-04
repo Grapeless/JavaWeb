@@ -17,7 +17,7 @@ public class GlobalExceptionHandler {
     public Result handleSQLIntegrityConstraintViolationException(SQLIntegrityConstraintViolationException e) {
         e.printStackTrace();
         if (e.getMessage().contains("Duplicate entry")) {
-            log.info("errorMsg:{}",e.getMessage());
+            //log.info("errorMsg:{}",e.getMessage());
             return Result.error(e.getMessage().split(" ")[2] + "已存在");
         }
         return Result.error("未知错误");

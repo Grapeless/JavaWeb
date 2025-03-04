@@ -9,5 +9,19 @@
                 name like concat('%', #{name}, '%')
             </if>
         </where>
+        order by sort
     </select>
+
+    <update id="updateDish">
+        update dish
+        set name        = #{name},
+            category_id = #{categoryId},
+            price       = #{price},
+            code        = '',
+            image       = #{image},
+            update_time = #{updateTime},
+            update_user = #{updateUser}
+        where id = #{id}
+    </update>
+
 </mapper>

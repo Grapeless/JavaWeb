@@ -16,12 +16,12 @@ public class LoginCheckHandler implements HandlerInterceptor {
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         //登录成功过的用户其session中的id才为非空,才放行
         if (request.getSession().getAttribute("id") != null) {
-            log.info("用户已登录,session id 为:{}",request.getSession().getAttribute("id"));
+            //log.info("用户已登录,session id 为:{}",request.getSession().getAttribute("id"));
             return true;
         }
         //否则拦截并返回错误信息
         String errorJSON = JSONObject.toJSONString(Result.error("NOTLOGIN"));
-        log.info("errorJSON:{},URL:{}",errorJSON,request.getRequestURL());
+        //log.info("errorJSON:{},URL:{}",errorJSON,request.getRequestURL());
         response.getWriter().write(errorJSON);
         return false;
     }

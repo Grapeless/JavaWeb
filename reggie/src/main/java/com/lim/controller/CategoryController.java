@@ -21,7 +21,7 @@ public class CategoryController {
     //添加菜品分类/套餐信息
     @PostMapping()
     public Result addCategory(@RequestBody Category category, HttpServletRequest req) {
-        log.info("新增菜品/套餐分类信息:{}", category);
+        //log.info("新增菜品/套餐分类信息:{}", category);
         //userId -- 当前登录用户的id
         Long userId = (Long) req.getSession().getAttribute("id");
 
@@ -42,7 +42,7 @@ public class CategoryController {
     //删除分类
     @DeleteMapping()
     public Result delCategoryById(Long ids){
-        log.info("将要删除的分类id:{}",ids);
+        //log.info("将要删除的分类id:{}",ids);
         categoryService.delCategoryById(ids);
         return Result.success();
     }
@@ -50,7 +50,7 @@ public class CategoryController {
     //修改分类
     @PutMapping()
     public Result updateCategory(@RequestBody Category category,HttpServletRequest req){
-        log.info("将要修改的分类信息:{}",category);
+        //log.info("将要修改的分类信息:{}",category);
         Long userId = (Long) req.getSession().getAttribute("id");
         categoryService.updateCategoryById(category,userId);
         return Result.success();
@@ -60,6 +60,7 @@ public class CategoryController {
     @GetMapping("/list")
     public Result selectByType(Category category){
         List<Category> categories = categoryService.selectByType(category.getType());
+        //log.info("查询出来的菜品列表:{}",categories);
         return Result.success(categories);
     }
 }

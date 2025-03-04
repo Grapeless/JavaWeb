@@ -23,7 +23,7 @@ public class ImageUploadController {
     @PostMapping("/upload")
     public Result imageUpload(MultipartFile file) throws Exception{
         String url = aliOSSUtils.upload(file);
-        log.info("图片上传后得到的文件名:{}",url);
+        //log.info("图片上传后得到的文件名:{}",url);
 
         return Result.success(url);
     }

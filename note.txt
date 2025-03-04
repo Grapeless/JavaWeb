@@ -13,3 +13,5 @@ AOP--Aspect Oriented Programming--面向切面编程
 REST--REpresentational State Transfer--表述性状态转移
 
 Restful--符合REST规范的资源访问风格
+
+DTO-- Data Transfer Object--数据传输对象

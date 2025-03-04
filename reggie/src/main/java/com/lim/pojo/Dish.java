@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 import java.io.Serializable;
 import java.math.BigDecimal;
@@ -19,13 +20,14 @@ public class Dish implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-
+    @JsonFormat(shape = JsonFormat.Shape.STRING)
     private Long id;
 
     //菜品名称
     private String name;
 
     //菜品分类id
+    @JsonFormat(shape = JsonFormat.Shape.STRING)
     private Long categoryId;
 
     //菜品价格
@@ -63,5 +65,6 @@ public class Dish implements Serializable {
 
     //组合(而不是继承)DishFlavor实现接受复杂参数
     private List<DishFlavor> flavors = new ArrayList<>();
+
 
 }

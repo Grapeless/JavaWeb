@@ -43,7 +43,7 @@ public class EmpServiceImpl implements EmpService {
     //分页查询
     @Override
     public PagingQueryResult<Emp> pagingQuery(Integer page, Integer pageSize, String name) {
-        log.info("page:{},pageSize:{}", page, pageSize);
+        //log.info("page:{},pageSize:{}", page, pageSize);
         //设置分页查询参数
         PageHelper.startPage(page, pageSize);
 

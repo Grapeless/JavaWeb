@@ -19,8 +19,8 @@ public class EmpController {
     @PostMapping("/login")
     public Result login(HttpServletRequest req, @RequestBody Emp emp) {
 
-        log.info("登录账户信息:{}", emp);
-        log.info("URL:{}", req.getRequestURL());
+        //log.info("登录账户信息:{}", emp);
+        //log.info("URL:{}", req.getRequestURL());
         Emp e = empService.login(emp);
 
         //先判断用户是否存在
@@ -49,7 +49,7 @@ public class EmpController {
     @PostMapping()
     public Result addEmp(@RequestBody Emp emp, HttpServletRequest req) {
 
-        log.info("新增员工对象信息:{}", emp);
+        //log.info("新增员工对象信息:{}", emp);
         Long userId = (Long) req.getSession().getAttribute("id");
         empService.addEmp(emp, userId);
 
