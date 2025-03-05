@@ -11,7 +11,6 @@ import com.lim.pojo.DishFlavor;
 import com.lim.pojo.PagingQueryResult;
 import com.lim.service.DishService;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -22,12 +21,15 @@ import java.util.List;
 @Slf4j
 @Service
 public class DishServiceImpl implements DishService {
-    @Autowired
-    private DishMapper dishMapper;
-    @Autowired
-    private DishFlavorMapper dishFlavorMapper;
-    @Autowired
-    private CategoryMapper categoryMapper;
+    private final DishMapper dishMapper;
+    private final DishFlavorMapper dishFlavorMapper;
+    private final CategoryMapper categoryMapper;
+
+    public DishServiceImpl(DishMapper dishMapper, DishFlavorMapper dishFlavorMapper, CategoryMapper categoryMapper) {
+        this.dishMapper = dishMapper;
+        this.dishFlavorMapper = dishFlavorMapper;
+        this.categoryMapper = categoryMapper;
+    }
 
     @Transactional
     @Override

@@ -2,14 +2,9 @@ package com.lim.dto;
 
 import com.fasterxml.jackson.annotation.JsonUnwrapped;
 import com.lim.pojo.Dish;
-import com.lim.pojo.DishFlavor;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
-
-import java.util.ArrayList;
-import java.util.List;
 
 @Data
 @AllArgsConstructor
