@@ -15,7 +15,7 @@ import java.util.List;
 @RequestMapping("/dish")
 @RestController
 @Slf4j
-public class DishController {
+public class  DishController {
     @Autowired
     private DishService dishService;
 

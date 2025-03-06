@@ -15,4 +15,6 @@ public interface CategoryService {
     void updateCategoryById(Category category,Long userId);
 
     List<Category> selectByType(Integer type);
+
+    List<Category> selectAll();
 }

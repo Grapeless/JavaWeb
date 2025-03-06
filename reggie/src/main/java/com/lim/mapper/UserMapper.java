@@ -12,6 +12,9 @@ public interface UserMapper {
     User selectUserByPhone(String phone);
 
     @Options(keyProperty = "id",useGeneratedKeys = true)
-    @Insert("insert into user(phone) values (phone = #{phone} )")
+    @Insert("insert into user(phone) values ( #{phone} )")
     void insertUser(User user);
+
+    @Select("select * from user where id = #{Id} ")
+    User selectById(Long Id);
 }

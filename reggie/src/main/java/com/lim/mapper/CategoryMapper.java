@@ -26,4 +26,7 @@ public interface CategoryMapper {
 
     @Select("select name from category where id = #{id}")
     String selectNameById(Long id);
+
+    @Select("select * from category")
+    List<Category> selectAll();
 }

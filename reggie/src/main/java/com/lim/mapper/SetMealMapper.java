@@ -25,4 +25,7 @@ public interface SetMealMapper {
 
     @Update("update setmeal set status = 1 where id = #{id} ")
     void switchOnSetMealStatusById(Long id);
+
+    @Select("select * from setmeal where category_id = #{categoryId} and status = 1")
+    List<SetMeal> selectSetMealByCategoryId(Long categoryId);
 }

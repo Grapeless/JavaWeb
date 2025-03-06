@@ -1,5 +1,6 @@
 package com.lim.exception.handler;
 
+import com.lim.exception.DataMissingException;
 import com.lim.exception.ReferentialIntegrityException;
 import com.lim.pojo.Result;
 import lombok.extern.slf4j.Slf4j;
@@ -26,6 +27,13 @@ public class GlobalExceptionHandler {
     //Referential Integrity 参照完整性约束异常
     @ExceptionHandler(ReferentialIntegrityException.class)
     public Result handleReferentialIntegrityException(ReferentialIntegrityException e){
+
+        return Result.error(e.getMessage());
+    }
+
+    //缺失必要信息异常
+    @ExceptionHandler(DataMissingException.class)
+    public Result handleDataMissingException(DataMissingException e){
 
         return Result.error(e.getMessage());
     }

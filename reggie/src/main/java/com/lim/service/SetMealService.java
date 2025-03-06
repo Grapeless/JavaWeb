@@ -4,6 +4,8 @@ import com.lim.dto.SetMealCategoryDTO;
 import com.lim.pojo.PagingQueryResult;
 import com.lim.pojo.SetMeal;
 
+import java.util.List;
+
 public interface SetMealService {
     void addSetMeal(SetMeal setMeal,Long userId);
 
@@ -14,4 +16,6 @@ public interface SetMealService {
     void switchOffSetMealStatus(Long[] ids);
 
     void switchOnSetMealStatus(Long[] ids);
+
+    List<SetMeal> selectSetMealByCategoryId(Long categoryId);
 }

@@ -10,6 +10,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Slf4j
 @RestController
 @RequestMapping("/setmeal")
@@ -58,4 +61,12 @@ public class SetMealController {
         setMealService.switchOnSetMealStatus(ids);
         return Result.success();
     }
+
+    //查询单个套餐详细信息
+    @GetMapping("/list")
+    public Result selectSetMealByCategoryId(Long categoryId){
+        List<SetMeal> setMealList = setMealService.selectSetMealByCategoryId(categoryId);
+        return Result.success(setMealList);
+    }
+
 }

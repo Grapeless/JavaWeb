@@ -9,6 +9,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Slf4j
@@ -41,7 +42,7 @@ public class CategoryController {
 
     //删除分类
     @DeleteMapping()
-    public Result delCategoryById(Long ids){
+    public Result delCategoryById(Long ids) {
         //log.info("将要删除的分类id:{}",ids);
         categoryService.delCategoryById(ids);
         return Result.success();
@@ -49,17 +50,23 @@ public class CategoryController {
 
     //修改分类
     @PutMapping()
-    public Result updateCategory(@RequestBody Category category,HttpServletRequest req){
+    public Result updateCategory(@RequestBody Category category, HttpServletRequest req) {
         //log.info("将要修改的分类信息:{}",category);
         Long userId = (Long) req.getSession().getAttribute("id");
-        categoryService.updateCategoryById(category,userId);
+        categoryService.updateCategoryById(category, userId);
         return Result.success();
     }
 
     //查询所有菜品分类信息（type = 1）
     @GetMapping("/list")
-    public Result selectByType(Category category){
-        List<Category> categories = categoryService.selectByType(category.getType());
+    public Result selectByType(Category category) {
+        List<Category> categories;
+        //不传值就全查
+        if (category.getType() != null) {
+            categories =  categoryService.selectByType(category.getType());
+        }else {
+            categories = categoryService.selectAll();
+        }
         //log.info("查询出来的菜品列表:{}",categories);
         return Result.success(categories);
     }

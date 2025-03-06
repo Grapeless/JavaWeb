@@ -93,4 +93,9 @@ public class SetMealServiceImpl implements SetMealService {
             setMealMapper.switchOnSetMealStatusById(id);
         }
     }
+
+    @Override
+    public List<SetMeal> selectSetMealByCategoryId(Long categoryId) {
+        return setMealMapper.selectSetMealByCategoryId(categoryId);
+    }
 }

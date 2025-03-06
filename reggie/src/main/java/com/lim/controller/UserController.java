@@ -38,7 +38,8 @@ public class UserController {
             //生成4位验证码
             String code = GenerateValidateCodeUtils.generateValidateCode4String(4);
             //给手机发送验证码
-            AliSMSUtils.sendSM(phone, code);
+            //AliSMSUtils.sendSM(phone, code);
+            log.info("code:{}",code);
             //将code存入session便于与用户实际填写的code校对
             req.getSession().setAttribute("code", code);
 
@@ -52,17 +53,17 @@ public class UserController {
         //用户输入的手机号及验证码
         String code = map.get("code");
         String phone = map.get("phone");
-
+        log.info("user.phone:{},code:{},session.code:{}",phone,code,req.getSession().getAttribute("code"));
         //比较用户输入的验证码以及session中的验证码
         if (code.equals(req.getSession().getAttribute("code"))) {
             //校验成功
             User user = userService.selectUserByPhone(phone);
-            if (user != null) {
-                //手机号不存在，则插入新用户
+            if (user == null) {
+                //手机号对应用户对象为空，则插入新用户
                 user = userService.insertUser(code, phone);
             }
             //否则直接登录成功
-            req.getSession().setAttribute("userId", user);
+            req.getSession().setAttribute("userId", user.getId());
             return Result.success(user);
         }
         //否则登录失败

@@ -140,6 +140,11 @@ public class DishServiceImpl implements DishService {
     @Override
     public List<Dish> selectByCategoryId(Long categoryId) {
         //只查询status=1的分类
-        return dishMapper.selectByCategoryId(categoryId);
+         List<Dish> dishes = dishMapper.selectByCategoryId(categoryId);
+         //附上菜品的口味信息
+         dishes.forEach(dish -> {
+             dish.setFlavors(dishFlavorMapper.selectByDishId(dish.getId()));
+         });
+         return dishes;
     }
 }
