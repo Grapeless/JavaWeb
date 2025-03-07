@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class OrderController {
     @Autowired
     private OrderService orderService;
-    //@PostMapping("/submit")
+    @PostMapping("/submit")
     public Result submitOrder(@RequestBody Orders orders, HttpServletRequest req){
         Long userId = (Long) req.getSession().getAttribute("userId");
         orderService.submitOrder(orders,userId);

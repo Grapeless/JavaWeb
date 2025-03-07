@@ -23,6 +23,14 @@ public class ShoppingCartController {
         return Result.success(shoppingCartList);
     }
 
+    //移除菜品或套餐
+    @PostMapping("/sub")
+    public Result sub(@RequestBody ShoppingCart shoppingCart,HttpServletRequest req){
+        Long userId = (Long) req.getSession().getAttribute("userId");
+        List<ShoppingCart> shoppingCartList = shoppingCartService.sub(shoppingCart,userId);
+        return Result.success(shoppingCartList);
+    }
+
     //查看购物车
     @GetMapping("/list")
     public Result list(HttpServletRequest req){

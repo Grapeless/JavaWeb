@@ -29,10 +29,31 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
 
         //将对应菜品/套餐的数量加一
         if (selectResult != null) {
-            shoppingCartMapper.update(selectResult);
+            shoppingCartMapper.add(selectResult);
         } else {
             //都不存在
             shoppingCartMapper.insert(shoppingCart);
+        }
+        return shoppingCartMapper.selectByUserId(userId);
+    }
+
+    @Override
+    public List<ShoppingCart> sub(ShoppingCart shoppingCart, Long userId) {
+        if (shoppingCart.getSetmealId() != null){
+            //查询该套餐已有数量,==1则删除,>1则减一
+            ShoppingCart selectResult = shoppingCartMapper.selectBySetMealIdAndUserId(userId, shoppingCart.getSetmealId());
+            if (selectResult.getNumber() == 1) {
+                shoppingCartMapper.deleteBySetMealId(shoppingCart.getSetmealId());
+            } else {
+                shoppingCartMapper.sub(selectResult);
+            }
+        }else {
+            ShoppingCart selectResult  = shoppingCartMapper.selectByDishIdAndUserId(userId, shoppingCart.getDishId());
+            if (selectResult.getNumber() == 1) {
+                shoppingCartMapper.deleteByDishId(shoppingCart.getDishId());
+            } else {
+                shoppingCartMapper.sub(selectResult);
+            }
         }
         return shoppingCartMapper.selectByUserId(userId);
     }
@@ -44,6 +65,6 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
 
     @Override
     public void deleteById(Long userId) {
-        shoppingCartMapper.deleteById(userId);
+        shoppingCartMapper.deleteByUserId(userId);
     }
 }

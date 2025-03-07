@@ -17,12 +17,21 @@ public interface ShoppingCartMapper {
             "values (#{name},#{image},#{userId},#{dishId},#{setmealId},#{dishFlavor},1,#{amount},#{createTime})")
     void insert(ShoppingCart shoppingCart);
 
-    @Update("update shopping_cart set number = #{number}+1 where id = #{id} ")
-    void update(ShoppingCart shoppingCart);
+    @Update("update shopping_cart set number = #{number} + 1 where id = #{id} ")
+    void add(ShoppingCart shoppingCart);
 
     @Select("select * from shopping_cart where user_id = #{userId} ")
     List<ShoppingCart> selectByUserId(Long userId);
 
     @Delete("delete from shopping_cart where user_id = #{userId} ")
-    void deleteById(Long userId);
+    void deleteByUserId(Long userId);
+
+    @Delete("delete from shopping_cart where setmeal_id = #{setMealId} ")
+    void deleteBySetMealId(Long setMealId);
+
+    @Delete("delete from shopping_cart where dish_id = #{deahId} ")
+    void deleteByDishId(Long dishId);
+
+    @Update("update shopping_cart set number = #{number} - 1 where id = #{id} ")
+    void sub(ShoppingCart shoppingCart);
 }

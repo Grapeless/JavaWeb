@@ -10,4 +10,6 @@ public interface ShoppingCartService {
     List<ShoppingCart> selectById(Long userId);
 
     void deleteById(Long userId);
+
+    List<ShoppingCart> sub(ShoppingCart shoppingCart, Long userId);
 }
